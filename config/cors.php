@@ -2,11 +2,11 @@
 
 return [
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'storage/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000'], // URL Next.js
+    'allowed_origins' => ['https://bhisma-frontend-nextjs.vercel.app',], // URL Next.js
 
     'allowed_origins_patterns' => [],
 
