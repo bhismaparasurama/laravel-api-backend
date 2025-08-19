@@ -12,18 +12,25 @@ class BlogController extends Controller
     public function index()
     {
         return Blog::all()->map(function ($blog) {
-        return [
-            'id' => $blog->id,
-            'title' => $blog->title,
-            'content' => $blog->content,
-            'image' => $blog->image ? asset('storage/' . $blog->image) : null,
-        ];
-    });
+            return [
+                'id' => $blog->id,
+                'title' => $blog->title,
+                'content' => $blog->content,
+                'image' => $blog->image ? asset('storage/' . $blog->image) : null,
+            ];
+        });
     }
 
     // Ambil detail blog
     public function show($id)
     {
-        return response()->json(Blog::findOrFail($id));
+        $blog = Blog::findOrFail($id);
+
+        return response()->json([
+            'id' => $blog->id,
+            'title' => $blog->title,
+            'content' => $blog->content,
+            'image' => $blog->image ? asset('storage/' . $blog->image) : null,
+        ]);
     }
 }
